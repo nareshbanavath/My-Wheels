@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SideMenuSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        setupSidemenu()
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
@@ -60,7 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    func setupSidemenu()
+    {
+        SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width * 0.7
+//        SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
+//        SideMenuController.preferences.basic.position = .under
+//        SideMenuController.preferences.basic.direction = .left
+       // SideMenuController.preferences.basic.defaultCacheKey = "home"
+      //  SideMenuController.preferences.basic.enablePanGesture = true
+       // SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
+//        SideMenuController.preferences.basic.supportedOrientations = .portrait
+//        SideMenuController.preferences.basic.shouldRespectLanguageDirection = true
+        
 
+    }
     // MARK: - Core Data Saving support
 
     func saveContext () {

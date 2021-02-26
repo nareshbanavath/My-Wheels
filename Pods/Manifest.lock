@@ -1,0 +1,16 @@
+PODS:
+  - SideMenuSwift (2.0.7)
+
+DEPENDENCIES:
+  - SideMenuSwift
+
+SPEC REPOS:
+  trunk:
+    - SideMenuSwift
+
+SPEC CHECKSUMS:
+  SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
+
+PODFILE CHECKSUM: e61d05f22718689b268f42ee6b932ca8bb5a3c8e
+
+COCOAPODS: 1.10.1

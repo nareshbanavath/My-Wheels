@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04393C8825E8D86A001ED80A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C8725E8D86A001ED80A /* CoreDataManager.swift */; };
+		04393C9025E8F300001ED80A /* CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C8F25E8F300001ED80A /* CustomTextFields.swift */; };
+		04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */; };
+		04393CA225E917AA001ED80A /* RCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393CA125E917AA001ED80A /* RCViewController.swift */; };
+		04599FB925EA159400C71E2B /* InsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FB825EA159400C71E2B /* InsuranceViewController.swift */; };
+		04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBB25EA15B200C71E2B /* PollutionViewController.swift */; };
+		04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBE25EA160700C71E2B /* ServicingViewController.swift */; };
+		04599FC225EA164100C71E2B /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FC125EA164100C71E2B /* BatteryViewController.swift */; };
+		04599FC525EA3B4A00C71E2B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FC425EA3B4A00C71E2B /* CustomImageView.swift */; };
+		04599FCA25EA42F500C71E2B /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FC925EA42F500C71E2B /* UIViewController + Extensions.swift */; };
+		04BC983825EF869600DBB9FA /* VehicleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC983725EF869600DBB9FA /* VehicleDetailsVC.swift */; };
+		04BC983D25EF870000DBB9FA /* InsuranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC983C25EF870000DBB9FA /* InsuranceCell.swift */; };
+		04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC983F25EF871B00DBB9FA /* RCDetailsCell.swift */; };
+		04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984225EF872700DBB9FA /* PollutionCell.swift */; };
+		04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */; };
 		65863D3625E3B1860075DC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3525E3B1860075DC6C /* AppDelegate.swift */; };
 		65863D3825E3B1860075DC6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3725E3B1860075DC6C /* SceneDelegate.swift */; };
 		65863D3D25E3B1870075DC6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65863D3B25E3B1870075DC6C /* Main.storyboard */; };
@@ -22,6 +37,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04393C8725E8D86A001ED80A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		04393C8F25E8F300001ED80A /* CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFields.swift; sourceTree = "<group>"; };
+		04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
+		04393CA125E917AA001ED80A /* RCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewController.swift; sourceTree = "<group>"; };
+		04599FB825EA159400C71E2B /* InsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceViewController.swift; sourceTree = "<group>"; };
+		04599FBB25EA15B200C71E2B /* PollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionViewController.swift; sourceTree = "<group>"; };
+		04599FBE25EA160700C71E2B /* ServicingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicingViewController.swift; sourceTree = "<group>"; };
+		04599FC125EA164100C71E2B /* BatteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViewController.swift; sourceTree = "<group>"; };
+		04599FC425EA3B4A00C71E2B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		04599FC925EA42F500C71E2B /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
+		04BC983725EF869600DBB9FA /* VehicleDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsVC.swift; sourceTree = "<group>"; };
+		04BC983C25EF870000DBB9FA /* InsuranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceCell.swift; sourceTree = "<group>"; };
+		04BC983F25EF871B00DBB9FA /* RCDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCDetailsCell.swift; sourceTree = "<group>"; };
+		04BC984225EF872700DBB9FA /* PollutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionCell.swift; sourceTree = "<group>"; };
+		04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicingDetailsCell.swift; sourceTree = "<group>"; };
 		320A65FD49422F81EABA5ED6 /* Pods-MyWheels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.debug.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.debug.xcconfig"; sourceTree = "<group>"; };
 		6528F0E3C49F46541B8349AE /* Pods-MyWheels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.release.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.release.xcconfig"; sourceTree = "<group>"; };
 		65863D3225E3B1850075DC6C /* MyWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +82,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04393C8625E8D852001ED80A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04393C8725E8D86A001ED80A /* CoreDataManager.swift */,
+				65863D3E25E3B1870075DC6C /* MyWheels.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04393C8E25E8F241001ED80A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				04393C8F25E8F300001ED80A /* CustomTextFields.swift */,
+				04599FC425EA3B4A00C71E2B /* CustomImageView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		04393CA025E9177C001ED80A /* PopUpControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04393CA125E917AA001ED80A /* RCViewController.swift */,
+				04599FB825EA159400C71E2B /* InsuranceViewController.swift */,
+				04599FBB25EA15B200C71E2B /* PollutionViewController.swift */,
+				04599FBE25EA160700C71E2B /* ServicingViewController.swift */,
+				04599FC125EA164100C71E2B /* BatteryViewController.swift */,
+			);
+			path = PopUpControllers;
+			sourceTree = "<group>";
+		};
+		04599FC725EA42C600C71E2B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04599FC925EA42F500C71E2B /* UIViewController + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04BC983B25EF86DD00DBB9FA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				04BC983C25EF870000DBB9FA /* InsuranceCell.swift */,
+				04BC983F25EF871B00DBB9FA /* RCDetailsCell.swift */,
+				04BC984225EF872700DBB9FA /* PollutionCell.swift */,
+				04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		65863D2925E3B1840075DC6C = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +152,10 @@
 		65863D3425E3B1850075DC6C /* MyWheels */ = {
 			isa = PBXGroup;
 			children = (
+				04599FC725EA42C600C71E2B /* Extensions */,
+				04393CA025E9177C001ED80A /* PopUpControllers */,
+				04393C8E25E8F241001ED80A /* Utils */,
+				04393C8625E8D852001ED80A /* Model */,
 				65BB2E4D25E7B851003FBC89 /* Home */,
 				65863D3525E3B1860075DC6C /* AppDelegate.swift */,
 				65863D3725E3B1860075DC6C /* SceneDelegate.swift */,
@@ -80,7 +163,6 @@
 				65863D4125E3B1B90075DC6C /* Assets.xcassets */,
 				65863D4325E3B1B90075DC6C /* LaunchScreen.storyboard */,
 				65863D4625E3B1B90075DC6C /* Info.plist */,
-				65863D3E25E3B1870075DC6C /* MyWheels.xcdatamodeld */,
 				65863D4D25E3B78B0075DC6C /* Constants.swift */,
 			);
 			path = MyWheels;
@@ -89,10 +171,13 @@
 		65BB2E4D25E7B851003FBC89 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				04BC983B25EF86DD00DBB9FA /* TableViewCells */,
 				65863D5D25E4E4F20075DC6C /* MenuVC.swift */,
 				65863D5A25E4E2550075DC6C /* HomeVC.swift */,
 				65BB2E5025E7B8A4003FBC89 /* MenuTableViewCell.swift */,
 				65B858AC25E8B6AA008E8DDC /* HomeTableViewCell.swift */,
+				04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */,
+				04BC983725EF869600DBB9FA /* VehicleDetailsVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -228,13 +313,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04599FC225EA164100C71E2B /* BatteryViewController.swift in Sources */,
+				04BC983825EF869600DBB9FA /* VehicleDetailsVC.swift in Sources */,
+				04BC983D25EF870000DBB9FA /* InsuranceCell.swift in Sources */,
+				04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */,
+				04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */,
 				65863D4E25E3B78B0075DC6C /* Constants.swift in Sources */,
+				04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */,
 				65863D5B25E4E2550075DC6C /* HomeVC.swift in Sources */,
+				04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */,
+				04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */,
+				04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */,
 				65BB2E5125E7B8A4003FBC89 /* MenuTableViewCell.swift in Sources */,
 				65863D3625E3B1860075DC6C /* AppDelegate.swift in Sources */,
 				65863D3825E3B1860075DC6C /* SceneDelegate.swift in Sources */,
 				65863D5E25E4E4F20075DC6C /* MenuVC.swift in Sources */,
+				04599FCA25EA42F500C71E2B /* UIViewController + Extensions.swift in Sources */,
+				04393C9025E8F300001ED80A /* CustomTextFields.swift in Sources */,
+				04393C8825E8D86A001ED80A /* CoreDataManager.swift in Sources */,
+				04393CA225E917AA001ED80A /* RCViewController.swift in Sources */,
+				04599FB925EA159400C71E2B /* InsuranceViewController.swift in Sources */,
 				65B858AD25E8B6AA008E8DDC /* HomeTableViewCell.swift in Sources */,
+				04599FC525EA3B4A00C71E2B /* CustomImageView.swift in Sources */,
 				65863D4025E3B1870075DC6C /* MyWheels.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

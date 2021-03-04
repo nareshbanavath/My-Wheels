@@ -7,5 +7,7 @@ target 'MyWheels' do
 
   # Pods for MyWheels
    pod 'SideMenuSwift'
+   pod 'DropDown'
+   pod 'IQKeyboardManagerSwift'
 
 end

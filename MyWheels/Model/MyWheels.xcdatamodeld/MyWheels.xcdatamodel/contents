@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BatteryTable" representedClassName="BatteryTable" syncable="YES" codeGenerationType="class">
+        <attribute name="batteryImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="make" optional="YES" attributeType="String"/>
+        <attribute name="purchasedOn" optional="YES" attributeType="String"/>
+        <attribute name="warantyImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="warrantyDate" optional="YES" attributeType="String"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="batteryDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="InsuranceTable" representedClassName="InsuranceTable" syncable="YES" codeGenerationType="class">
+        <attribute name="agency" optional="YES" attributeType="String"/>
+        <attribute name="amountPaid" optional="YES" attributeType="String"/>
+        <attribute name="insuranceImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="validFrom" optional="YES" attributeType="String"/>
+        <attribute name="validUpto" optional="YES" attributeType="String"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="insuranceDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="PollutionTable" representedClassName="PollutionTable" syncable="YES" codeGenerationType="class">
+        <attribute name="pollutionImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="validFrom" optional="YES" attributeType="String"/>
+        <attribute name="validUpto" optional="YES" attributeType="String"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="pollutionDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="RCDetailsTable" representedClassName="RCDetailsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="rcBackImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="rcFrontImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="rcValidUpto" optional="YES" attributeType="String"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="rcDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="ServicingTable" representedClassName="ServicingTable" syncable="YES" codeGenerationType="class">
+        <attribute name="generalServiceFlag" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="gsAmount" optional="YES" attributeType="String"/>
+        <attribute name="nextServicingAtKm" optional="YES" attributeType="String"/>
+        <attribute name="nextServicingDate" optional="YES" attributeType="String"/>
+        <attribute name="osAmount" optional="YES" attributeType="String"/>
+        <attribute name="othersFlag" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="services" optional="YES" attributeType="String"/>
+        <attribute name="servicingAtKm" optional="YES" attributeType="String"/>
+        <attribute name="servicingDate" optional="YES" attributeType="String"/>
+        <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="servicingDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="VehicleDetails" representedClassName="VehicleDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="fuel" optional="YES" attributeType="String"/>
+        <attribute name="make" optional="YES" attributeType="String"/>
+        <attribute name="model" optional="YES" attributeType="String"/>
+        <attribute name="vehicleNo" optional="YES" attributeType="String"/>
+        <attribute name="vehiclePhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
+        <relationship name="batteryDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BatteryTable" inverseName="vehicle" inverseEntity="BatteryTable"/>
+        <relationship name="insuranceDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InsuranceTable" inverseName="vehicle" inverseEntity="InsuranceTable"/>
+        <relationship name="pollutionDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PollutionTable" inverseName="vehicle" inverseEntity="PollutionTable"/>
+        <relationship name="rcDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCDetailsTable" inverseName="vehicle" inverseEntity="RCDetailsTable"/>
+        <relationship name="servicingDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServicingTable" inverseName="vehicle" inverseEntity="ServicingTable"/>
+    </entity>
+    <elements>
+        <element name="BatteryTable" positionX="0" positionY="63" width="128" height="119"/>
+        <element name="InsuranceTable" positionX="-54" positionY="36" width="128" height="119"/>
+        <element name="PollutionTable" positionX="-36" positionY="45" width="128" height="89"/>
+        <element name="RCDetailsTable" positionX="-63" positionY="27" width="128" height="89"/>
+        <element name="ServicingTable" positionX="-18" positionY="54" width="128" height="179"/>
+        <element name="VehicleDetails" positionX="-63" positionY="-18" width="128" height="194"/>
+    </elements>
+</model>

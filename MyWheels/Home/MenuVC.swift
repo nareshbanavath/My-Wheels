@@ -23,7 +23,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
-        cell.menuitemLb.text = menuItem[indexPath.row]
+        //cell.menuitemLb.text = menuItem[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }

@@ -1,16 +1,24 @@
 PODS:
+  - DropDown (2.3.13)
+  - IQKeyboardManagerSwift (6.5.6)
   - SideMenuSwift (2.0.7)
 
 DEPENDENCIES:
+  - DropDown
+  - IQKeyboardManagerSwift
   - SideMenuSwift
 
 SPEC REPOS:
   trunk:
+    - DropDown
+    - IQKeyboardManagerSwift
     - SideMenuSwift
 
 SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
 
-PODFILE CHECKSUM: e61d05f22718689b268f42ee6b932ca8bb5a3c8e
+PODFILE CHECKSUM: 26d35acf39f49aa6a93167d3cd91d25d3cc3cb02
 
 COCOAPODS: 1.10.1

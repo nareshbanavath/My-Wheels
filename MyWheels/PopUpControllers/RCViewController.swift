@@ -11,7 +11,13 @@ class RCViewController: UIViewController {
 
   
   //rcDetailsFillView
-  @IBOutlet weak var rcValidUpto: UITextField!
+  @IBOutlet weak var rcValidUpto: DatePickeredTextField!
+  {
+    didSet
+    {
+      rcValidUpto.datepicker.minimumDate = Date()
+    }
+  }
   @IBOutlet weak var rcBack_Fill_ImgView: ImagePickeredView!
   @IBOutlet weak var rcFront_Fill_ImgView: ImagePickeredView!
   @IBOutlet weak var closeBtn: UIButton!
@@ -23,6 +29,8 @@ class RCViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var rcBack_Show_ImageView: UIImageView!
+  @IBOutlet weak var rcFront_Show_ImageView: UIImageView!
   @IBOutlet weak var rcDetailsFillView: UIView!
   var parentVehicle : VehicleDetails?
   var completion : ((Bool)->())?
@@ -52,23 +60,49 @@ class RCViewController: UIViewController {
     
   @IBAction func saveBtnClicked(_ sender: UIButton) {
    // if rcBack_Fill_ImgView.
-//    NSEntityDescription.entity(forEntityName: "", in: "")
+//    NSEntityDescription.entity(forEntityName: "", in: ""
+    guard validation() else {return}
     let rcDetails = RCDetailsTable(context: CoreDataManager.shared.persistentContainer.viewContext)
     guard let selectedVehicle = parentVehicle else { return }
     rcDetails.vehicle = selectedVehicle
     rcDetails.rcValidUpto = rcValidUpto.text
-    CoreDataManager.shared.saveContext()
-    dismiss(animated: true) {
-      self.completion?(true)
+    rcDetails.rcFrontImg = rcBack_Fill_ImgView.image?.pngData()
+    rcDetails.rcBackImg = rcFront_Fill_ImgView.image?.pngData()
+    DispatchQueue.global(qos: .userInteractive).async {
+      CoreDataManager.shared.saveContext()
     }
+   
+    let delegate = UIApplication.shared.delegate as? AppDelegate
+    delegate?.scheduleLocalNotification(title: "RC Details", body: "Last Date for RC", date: rcValidUpto.completeDate ?? "")
+  
+    DispatchQueue.main.async {
+      self.dismiss(animated: true)
+    }
+    self.completion?(true)
+
     
   }
+  func validation() -> Bool {
+    guard rcFront_Fill_ImgView.isImagePicked == true else {self.showAlert(message: "Please Capture RC Front Image");return false}
+    guard rcBack_Fill_ImgView.isImagePicked == true else {self.showAlert(message: "Please Capture RC Back Image");return false}
+    guard rcValidUpto.text?.count != 0 else {self.showAlert(message: "Please Capture RC Back Image");return false}
+    return true
+  }
+
   func setupView(){
     guard let rcResults = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: parentVehicle,entityName: .rcDetails) as? [RCDetailsTable] else {return}
     if rcResults.count > 0 //When have data need show rcDetails_Show_View
     {
       //
       rcValidUptoLb.text = rcResults.last?.rcValidUpto
+      if let imgDataBack = rcResults.last?.rcBackImg
+      {
+        self.rcBack_Show_ImgView.image = UIImage(data: imgDataBack)
+      }
+      if let imgDataFront = rcResults.last?.rcFrontImg
+      {
+        self.rcFront_Show_ImgView.image = UIImage(data: imgDataFront)
+      }
       rcDetailsFillView.isHidden = true
       rcDetailsShowView.isHidden = false
       addBtn.isHidden = false

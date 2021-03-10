@@ -8,14 +8,33 @@
 import UIKit
 import SideMenuSwift
 import IQKeyboardManagerSwift
-
+import UserNotifications
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       IQKeyboardManager.shared.enable = true
+
+      UNUserNotificationCenter.current().requestAuthorization(options: [.alert ,.badge, .sound]) { (granted, error) in
+        if granted
+        {
+            print("notification Granted")
+        }
+        else {
+
+          print("We can not notify you about your validity of vehicle if notification not allowed, So please turn on notification ")
+          let settinglUrl = UIApplication.openSettingsURLString
+          guard let url = URL(string: settinglUrl) else {return}
+          DispatchQueue.main.async {
+            if UIApplication.shared.canOpenURL(url)
+            {
+              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+          }
+
+        }
+      }
         // Override point for customization after application launch.
         return true
     }
@@ -34,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+    
     func setupSidemenu()
     {
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width * 0.7
@@ -49,6 +68,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
     }
+  //for displaying notification when app is in foreground
+     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
+         //If you don't want to show notification when app is open, do something here else and make a return here.
+         //Even you you don't implement this delegate method, you will not see the notification on the specified controller. So, you have to implement this delegate and make sure the below line execute. i.e. completionHandler.
+
+         completionHandler([.alert, .badge, .sound])
+     }
+  func scheduleLocalNotification(title : String , body : String , date : String)
+  {
+    //Step1:- Create Notification Content
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.sound = .default
+    //Step2:- Create Trigger when to deliver the notification
+    guard let dateComponents = convertStrDateToDateComps(dateStr: date) else {return}
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+    //Step3 :- Create notification Request
+    let uuid = UUID().uuidString
+    let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+    //Step4:- add request to notification center
+    UNUserNotificationCenter.current().delegate = self
+    UNUserNotificationCenter.current().add(request) { (error) in
+      print(error?.localizedDescription as Any)
+      
+    }
+  }
+  func convertStrDateToDateComps(dateStr : String) -> DateComponents?
+  {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+    guard let date = dateFormatter.date(from: dateStr) else {return nil}
+    let currentDateComps = Calendar.current.dateComponents([.year , .month , .day], from: Date())
+    let givenDateComps = Calendar.current.dateComponents([.year , .month , .day], from: date)
+   // if date == Da
+    if currentDateComps == givenDateComps
+    {
+      let dateComponents = Calendar.current.dateComponents([.year ,.month ,.day , .hour , .minute , .second], from: Date().addingTimeInterval(5))
+    //  dateComponents.
+      print(dateComponents)
+      return dateComponents
+    }
+    else if  date > Date()
+    {
+      //when date is greater than current date
+      var dateComponents = Calendar.current.dateComponents([.year ,.month ,.day], from: Date())
+      dateComponents.hour = 10
+      print(dateComponents)
+      return dateComponents
+    }
+    return nil
+  }
 
 
 }

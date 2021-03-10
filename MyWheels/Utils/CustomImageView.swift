@@ -74,8 +74,11 @@ class ImagePickeredView: UIImageView , UIImagePickerControllerDelegate , UINavig
         let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.contentMode = .scaleAspectFit
         //self.presentCropViewController(image: pickedImage)
-        self.image = pickedImage
-        isImagePicked = true
+       // self.image = pickedImage
+        self.isImagePicked = true
+      print("Original Image Size in MBs :- \(pickedImage.getSizeIn(.megabyte))")
+      print("compressed image size of 50% :- \(UIImage(data: pickedImage.lowestQualityJPEGNSData)?.getSizeIn(.megabyte))")
+      self.image = UIImage(data: pickedImage.mediumQualityJPEGNSData)
         imagePickeredDelegate?.didFinishPicking(pickedImage , imageView: self)
         picker.dismiss(animated: true, completion: nil)
         

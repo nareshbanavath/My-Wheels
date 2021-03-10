@@ -12,8 +12,20 @@ class PollutionViewController: UIViewController {
   @IBOutlet weak var addBtn: UIButton!
   @IBOutlet weak var pollution_Fill_ImgView: ImagePickeredView!
   
-  @IBOutlet weak var validFromTxt: UITextField!
-  @IBOutlet weak var validUptoTxt: UITextField!
+  @IBOutlet weak var validFromTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      validFromTxt.datepicker.maximumDate = Date()
+    }
+  }
+  @IBOutlet weak var validUptoTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      validUptoTxt.datepicker.minimumDate = Date()
+    }
+  }
   
   @IBOutlet weak var pollution_Show_ImgView: UIImageView!
   @IBOutlet weak var validFromLb: UILabel!
@@ -71,6 +83,7 @@ class PollutionViewController: UIViewController {
     }
   }
   @IBAction func saveBtnClicked(_ sender: UIButton) {
+    guard validation() else {return}
     guard let selectedVehicle = parentVehicle else { return }
     let pollutionDetails = PollutionTable(context: CoreDataManager.shared.persistentContainer.viewContext)
    
@@ -85,7 +98,10 @@ class PollutionViewController: UIViewController {
   }
   func validation() -> Bool
   {
-    guard pollution_Fill_ImgView.isImagePicked else {return false}
-    return false
+    guard pollution_Fill_ImgView.isImagePicked else {self.showAlert(message: "Please Capture Pollution Certificate Image");return false}
+    guard validFromTxt.text?.count != 0 else {self.showAlert(message: "Please Enter valid from");return false}
+    guard validUptoTxt.text?.count != 0 else {self.showAlert(message: "Please Enter valid Upto");return false}
+    
+    return true
   }
 }

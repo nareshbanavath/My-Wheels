@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
   
   //MARK:- Properties
   
+  @IBOutlet weak var batteryBtn: UIButton!
   @IBOutlet weak var vehicleImgView: ImagePickeredView!
 
   @IBOutlet weak var servicingPlusIcon: UIImageView!
@@ -49,8 +50,27 @@ class HomeTableViewCell: UITableViewCell {
     pollutionView.addGestureRecognizer(tapGesture3)
     let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(servicingViewTapped(_:)))
     servicingView.addGestureRecognizer(tapGesture4)
+    batteryBtn.addTarget(self, action: #selector(batterBtnTapped(_:)), for: .touchUpInside)
   }
   //MARK:- ViewTapActions
+  @objc func batterBtnTapped(_ sender : UIButton)
+  {
+    guard let vehicleDatails = self.vehicleDetails else {fatalError("vehicle Data not available")}
+    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BatteryViewController") as! BatteryViewController
+    vc.definesPresentationContext = true
+    vc.modalPresentationStyle = .overCurrentContext
+    vc.modalTransitionStyle = .crossDissolve
+    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    vc.parentVehicle = vehicleDatails
+    vc.completion = {[weak self](flag) in
+      self?.setupBatteryInfo()
+    }
+    
+    //    vc.view.backgroundColor =
+    let rootViewController = window?.rootViewController
+    rootViewController?.present(vc, animated: true, completion: nil)
+    
+  }
   @objc func rcViewTapped(_ tapGesture : UITapGestureRecognizer)
   {
     print(#function)
@@ -152,6 +172,7 @@ class HomeTableViewCell: UITableViewCell {
     setupInsuranceDetails()
     setupPollutionDetails()
     setupServicingDetails()
+    setupBatteryInfo()
   }
   //returns color and no.Of days validity fro views in vehicle cell
   func getColorAndDays(for date : String) -> (UIColor , String)?
@@ -179,6 +200,17 @@ class HomeTableViewCell: UITableViewCell {
     
   }
   //MARK:- Coredata funcs
+  func setupBatteryInfo(){
+    guard let battertResults = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicleDetails,entityName: .bateryDetails) as? [BatteryTable] else {return}
+    if battertResults.count > 0
+    {
+      //getting last component (latest one) from array
+      guard let warrantyUpto = battertResults.last?.warrantyDate else {return}
+      guard let colorAndDays = getColorAndDays(for: warrantyUpto) else {return}
+      batteryBtn.tintColor = colorAndDays.0 // color
+      
+    }
+  }
   func setupRcDetails(){
     guard let rcResults = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicleDetails,entityName: .rcDetails) as? [RCDetailsTable] else {return}
     if rcResults.count > 0
@@ -190,6 +222,7 @@ class HomeTableViewCell: UITableViewCell {
       rcAddLb.textColor = .black
       rcAddLb.text = "\(colorAndDays.1) days" //colorAndDays.1 //no.Of days count
       rcView.backgroundColor = colorAndDays.0 // color
+      
       
     }
   }

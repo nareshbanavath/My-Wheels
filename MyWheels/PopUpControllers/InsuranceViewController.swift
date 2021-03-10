@@ -11,7 +11,13 @@ class InsuranceViewController: UIViewController {
 
   @IBOutlet weak var insurance_Fill_ImgView: ImagePickeredView!
   @IBOutlet weak var closeBtn: UIButton!
-  @IBOutlet weak var validFromTxt: UITextField!
+  @IBOutlet weak var validFromTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      validFromTxt.datepicker.maximumDate = Date()
+    }
+  }
   @IBOutlet weak var addBtn: UIButton!
   {
     didSet
@@ -20,7 +26,13 @@ class InsuranceViewController: UIViewController {
       addBtn.isHidden = true
     }
   }
-  @IBOutlet weak var validUptoTxt: UITextField!
+  @IBOutlet weak var validUptoTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      validUptoTxt.datepicker.minimumDate = Date()
+    }
+  }
   @IBOutlet weak var agencyTxt: UITextField!
   @IBOutlet weak var amountPaidTxt: UITextField!
   
@@ -84,6 +96,7 @@ class InsuranceViewController: UIViewController {
     }
   }
   @IBAction func saveBtnAction(_ sender: UIButton) {
+    guard validation() else {return}
     guard let selectedVehicle = parentVehicle else { return }
     let insuranceDetails = InsuranceTable(context: CoreDataManager.shared.persistentContainer.viewContext)
    
@@ -93,9 +106,22 @@ class InsuranceViewController: UIViewController {
     insuranceDetails.agency = agencyTxt.text
     insuranceDetails.amountPaid = amountPaidTxt.text
     insuranceDetails.insuranceImg = insurance_Fill_ImgView.image?.pngData()
-    CoreDataManager.shared.saveContext()
+    DispatchQueue.global(qos: .userInteractive).async {
+      CoreDataManager.shared.saveContext()
+    }
+    let delegate = UIApplication.shared.delegate as? AppDelegate
+    delegate?.scheduleLocalNotification(title: "Insurance Details", body: "Last Date for Insurance", date: validUptoTxt.completeDate ?? "")
+    
     dismiss(animated: true) {
       self.completion?(true)
     }
+  }
+  func validation() -> Bool{
+    guard insurance_Fill_ImgView.isImagePicked == true else {self.showAlert(message: "Please capture Insurance Certificate Image");return false}
+    guard validFromTxt.text?.count != 0 else {self.showAlert(message: "Please Enter Valid from");return false}
+    guard validUptoTxt.text?.count != 0 else {self.showAlert(message: "Please Enter Valid Upto");return false}
+    guard agencyTxt.text?.count != 0 else {self.showAlert(message: "Please Enter Agency");return false}
+    guard amountPaidTxt.text?.count != 0 else {self.showAlert(message: "Please Enter Amount paid");return false}
+    return true
   }
 }

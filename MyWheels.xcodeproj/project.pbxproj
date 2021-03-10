@@ -11,6 +11,7 @@
 		04393C9025E8F300001ED80A /* CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C8F25E8F300001ED80A /* CustomTextFields.swift */; };
 		04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */; };
 		04393CA225E917AA001ED80A /* RCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393CA125E917AA001ED80A /* RCViewController.swift */; };
+		0457C2FE25F637B4006CAC2A /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */; };
 		04599FB925EA159400C71E2B /* InsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FB825EA159400C71E2B /* InsuranceViewController.swift */; };
 		04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBB25EA15B200C71E2B /* PollutionViewController.swift */; };
 		04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBE25EA160700C71E2B /* ServicingViewController.swift */; };
@@ -41,6 +42,7 @@
 		04393C8F25E8F300001ED80A /* CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFields.swift; sourceTree = "<group>"; };
 		04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		04393CA125E917AA001ED80A /* RCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewController.swift; sourceTree = "<group>"; };
+		0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		04599FB825EA159400C71E2B /* InsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceViewController.swift; sourceTree = "<group>"; };
 		04599FBB25EA15B200C71E2B /* PollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionViewController.swift; sourceTree = "<group>"; };
 		04599FBE25EA160700C71E2B /* ServicingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicingViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				04599FC925EA42F500C71E2B /* UIViewController + Extensions.swift */,
+				0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				04BC983D25EF870000DBB9FA /* InsuranceCell.swift in Sources */,
 				04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */,
 				04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */,
+				0457C2FE25F637B4006CAC2A /* UIImage + Extension.swift in Sources */,
 				65863D4E25E3B78B0075DC6C /* Constants.swift in Sources */,
 				04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */,
 				65863D5B25E4E2550075DC6C /* HomeVC.swift in Sources */,
@@ -486,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RH6LF4GV53;
 				INFOPLIST_FILE = MyWheels/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,6 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RH6LF4GV53;
 				INFOPLIST_FILE = MyWheels/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

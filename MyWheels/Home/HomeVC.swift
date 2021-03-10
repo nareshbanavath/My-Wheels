@@ -26,24 +26,29 @@ class HomeVC: UIViewController {
         self.setupNavigation()
         tableView.delegate = self
         tableView.dataSource = self
-      getVehicleData()
+        getVehicleData()
+      debugPrint(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+      
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.setupnavbarButtons()
+        //self.setupnavbarButtons()
+      let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(fabTapped(_:)))
+      self.navigationItem.setRightBarButtonItems([addBtn], animated: true)
+      self.navigationController?.navigationBar.tintColor = .white
     }
   override func viewDidAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-    if let view = self.view.window {
-          view.addSubview(faButton)
-          setupButton()
-      }
+//    if let view = self.view.window {
+//          view.addSubview(faButton)
+//          setupButton()
+//      }
   }
 
   override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-    if let view = self.view.window, faButton.isDescendant(of: view) {
-          faButton.removeFromSuperview()
-      }
+//    if let view = self.view.window, faButton.isDescendant(of: view) {
+//          faButton.removeFromSuperview()
+//      }
   }
   
   //MARK:- CoreData Methods
@@ -72,10 +77,11 @@ class HomeVC: UIViewController {
   
   @objc func fabTapped(_ button: UIButton) {
     let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddVehicleVC") as! AddVehicleVC
-    vc.modalPresentationStyle = .overCurrentContext
-    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    vc.modalPresentationStyle = .automatic
+    vc.view.backgroundColor = UIColor.clear
     vc.definesPresentationContext = false
-    vc.modalTransitionStyle = .crossDissolve
+    vc.modalTransitionStyle = .coverVertical
+    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     vc.completion = { [unowned self](success) in
       self.getVehicleData()
     }

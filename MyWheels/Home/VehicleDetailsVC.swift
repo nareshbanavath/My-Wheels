@@ -17,20 +17,22 @@ class VehicleDetailsVC: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.tableFooterView = UIView()
+    tableView.separatorStyle = .none
+    tableView.separatorColor = .none
     getAllData(for: vehicle)
         // Do any additional setup after loading the view.
     }
   func getAllData(for vehicle : VehicleDetails)
   {
-    if let insuranceData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .insuranceDetails) as? [InsuranceTable]
+    if let insuranceData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .insuranceDetails) as? [InsuranceTable] , insuranceData.count > 0
     {
       tableViewDataSource.append(insuranceData)
     }
-    if let pollutionData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .pollutionDetails) as? [PollutionTable]
+    if let pollutionData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .pollutionDetails) as? [PollutionTable] , pollutionData.count > 0
     {
       tableViewDataSource.append(pollutionData)
     }
-    if let servicingData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .servicingDetails) as? [ServicingTable]
+    if let servicingData = CoreDataManager.shared.getManagedObjectsForVehicle(vehicleEntity: vehicle, entityName: .servicingDetails) as? [ServicingTable] , servicingData.count > 0
     {
       tableViewDataSource.append(servicingData)
     }
@@ -61,12 +63,19 @@ extension VehicleDetailsVC : UITableViewDataSource , UITableViewDelegate
     return tableViewDataSource[section].count
   }
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 50))
-    view.backgroundColor = UIColor(named: "appColor")
+    let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 40))
+    //view.backgroundColor = UIColor(named: "appColor")
+    view.backgroundColor = UIColor.systemGray6
+    view.layer.cornerRadius = 2.0
     let titleLabel = UILabel(frame: .zero)
-    titleLabel.textColor = UIColor.white
-    titleLabel.font = UIFont.systemFont(ofSize: 14.0 ,weight: .semibold)
-    titleLabel.text = titleForManagedObject(obj: tableViewDataSource[section][0])
+    //titleLabel.textColor = UIColor.white
+    titleLabel.textColor = UIColor(named: "appColor")
+    titleLabel.font = UIFont.systemFont(ofSize: 17.0 ,weight: .semibold)
+    if let obje = tableViewDataSource[section].first
+    {
+      titleLabel.text = titleForManagedObject(obj: obje)
+    }
+   
     view.addSubview(titleLabel)
     
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -78,8 +87,11 @@ extension VehicleDetailsVC : UITableViewDataSource , UITableViewDelegate
     ])
     return view
   }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
+    return 40
   }
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //return UITableViewCell()

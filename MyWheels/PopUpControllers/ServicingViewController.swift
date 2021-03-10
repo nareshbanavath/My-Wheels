@@ -17,9 +17,21 @@ class ServicingViewController: UIViewController {
   @IBOutlet weak var closeBtn: UIButton!
   @IBOutlet weak var addBtn: UIButton!
   @IBOutlet weak var servicing_Fill_View: UIView!
-  @IBOutlet weak var servicingDateTxt: UITextField!
+  @IBOutlet weak var servicingDateTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      servicingDateTxt.datepicker.maximumDate = Date()
+    }
+  }
   
-  @IBOutlet weak var netServicingDateTxt: UITextField!
+  @IBOutlet weak var nextServicingDateTxt: DatePickeredTextField!
+  {
+    didSet
+    {
+      nextServicingDateTxt.datepicker.minimumDate = Date()
+    }
+  }
   
   @IBOutlet weak var servicingAtKmTxt: UITextField!
   @IBOutlet weak var nextServicingAtKmTxt: UITextField!
@@ -81,12 +93,13 @@ class ServicingViewController: UIViewController {
     }
     
   @IBAction func saveBtnClicked(_ sender: UIButton) {
+    guard validation() else {return}
     guard let selectedVehicle = parentVehicle else { return }
     let servicingDetails = ServicingTable(context: CoreDataManager.shared.persistentContainer.viewContext)
    
     servicingDetails.vehicle = selectedVehicle
     servicingDetails.servicingDate = servicingDateTxt.text
-    servicingDetails.nextServicingDate = netServicingDateTxt.text
+    servicingDetails.nextServicingDate = nextServicingDateTxt.text
     servicingDetails.servicingAtKm = servicingAtKmTxt.text
     servicingDetails.nextServicingAtKm = nextServicingAtKmTxt.text
     servicingDetails.generalServiceFlag = gs_Fill_Btn.isSelected
@@ -100,6 +113,11 @@ class ServicingViewController: UIViewController {
       self.completion?(true)
     }
 
+  }
+  func validation() -> Bool {
+    guard servicingDateTxt.text?.count != 0 else {self.showAlert(message: "Please Select Servicing Date");return false}
+    guard nextServicingDateTxt.text?.count != 0 else {self.showAlert(message: "Please Select NextServicing Date");return false}
+    return true
   }
   func setupServicingView()
   {

@@ -66,10 +66,10 @@ class CoreDataManager
   {
     do {
       let fetchResult = try persistentContainer.viewContext.fetch(fetchRequest)
-      if fetchResult.isEmpty
-      {
-        return nil
-      }
+//      if fetchResult.isEmpty
+//      {
+//        return nil
+//      }
       return fetchResult
     }catch let err {
       print(err)
@@ -87,6 +87,7 @@ class CoreDataManager
     guard let resultArray = self.getManagedObjects(fetchRequest: fetchRequest) else {return nil}
     return resultArray
   }
+  
 
   
 }

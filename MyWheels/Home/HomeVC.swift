@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 class HomeVC: UIViewController {
   //MARK:- Properties
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
       button.addTarget(self, action: #selector(fabTapped(_:)), for: .touchUpInside)
       return button
   }()
+//  var dataSource = UITableViewDiffableDataSource<Int,VehicleDetails>()
   //MARK:- Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class HomeVC: UIViewController {
     }
   override func viewDidAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
+    setupnavbarButtons()
 //    if let view = self.view.window {
 //          view.addSubview(faButton)
 //          setupButton()
@@ -50,7 +52,18 @@ class HomeVC: UIViewController {
 //          faButton.removeFromSuperview()
 //      }
   }
-  
+  //MARK:- Diffable DataSource methods
+//  func makeDataSource()
+//  {
+//    let dataSource = UITableViewDiffableDataSource<Int , VehicleDetails>(tableView: tableView) { [self](tableView, indexPath, vehicleDetails) -> UITableViewCell? in
+//      let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+//    cell.vehicleDetails = tableViewDataSource?[indexPath.row]
+//    cell.vehicleImgView.tag = indexPath.row
+//    cell.vehicleImgView.parentViewController = self
+//    cell.vehicleImgView.imagePickeredDelegate = self
+//      return cell
+//    }
+//  }
   //MARK:- CoreData Methods
   func getVehicleData()
   {
@@ -88,14 +101,11 @@ class HomeVC: UIViewController {
     present(vc, animated: true, completion: nil)
   }
     func setupnavbarButtons(){
-        let searchImage  = UIImage(named: "export")!
-        let sidemenuImage = UIImage(named: "menu")
-        let selectAllButton = UIBarButtonItem(title: "Select all", style: .plain, target: nil, action: nil)
-        selectAllButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
-        let shareButton = UIBarButtonItem(image: searchImage,  style: .plain, target: self, action: Selector(("didTapShareButton:")))
-        shareButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
-        let menuButton = UIBarButtonItem(image: sidemenuImage,  style: .plain, target: self, action: #selector(didTapMenuButton))
-        navigationItem.rightBarButtonItems =  [shareButton,selectAllButton]
+       // let searchImage  = UIImage(named: "export")!
+        let menuImg = UIImage(named: "menu")
+        let menuButton = UIBarButtonItem(image: menuImg,  style: .plain, target: self, action: #selector(didTapMenuButton))
+    //  menuButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -5, right: -5)
+       // navigationItem.rightBarButtonItems =  [shareButton,selectAllButton]
         navigationItem.leftBarButtonItem = menuButton
         navigationItem.leftBarButtonItem?.tintColor = .white
         navigationItem.rightBarButtonItem?.tintColor = .white

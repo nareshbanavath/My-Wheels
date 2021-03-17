@@ -75,10 +75,21 @@ class ImagePickeredView: UIImageView , UIImagePickerControllerDelegate , UINavig
         self.contentMode = .scaleAspectFit
         //self.presentCropViewController(image: pickedImage)
        // self.image = pickedImage
-        self.isImagePicked = true
-      print("Original Image Size in MBs :- \(pickedImage.getSizeIn(.megabyte))")
-      print("compressed image size of 50% :- \(UIImage(data: pickedImage.lowestQualityJPEGNSData)?.getSizeIn(.megabyte))")
-      self.image = UIImage(data: pickedImage.mediumQualityJPEGNSData)
+  
+     // print("Original Image Size in MBs :- \(pickedImage.getSizeIn(.megabyte)) MB")
+      LoadingOverlay.shared.showOverlay(view: (parentViewController?.view)!)
+      DispatchQueue.global(qos: .userInteractive).async {
+        let image = UIImage(data: pickedImage.compress(to: 1000))
+        DispatchQueue.main.async {
+          LoadingOverlay.shared.hideOverlayView()
+          self.isImagePicked = true
+          self.image = image
+        }
+      }
+      
+     //
+      //self.image = UIImage(data: pickedImage.compress(to: 1000))
+      //print("compressed image size :- \(self.image?.getSizeIn(.megabyte)) MB")
         imagePickeredDelegate?.didFinishPicking(pickedImage , imageView: self)
         picker.dismiss(animated: true, completion: nil)
         

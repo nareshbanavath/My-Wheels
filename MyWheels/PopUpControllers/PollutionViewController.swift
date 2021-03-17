@@ -92,6 +92,9 @@ class PollutionViewController: UIViewController {
     pollutionDetails.validUpto = validUptoTxt.text
     pollutionDetails.pollutionImg = pollution_Fill_ImgView.image?.pngData()
     CoreDataManager.shared.saveContext()
+    
+     let delegate = UIApplication.shared.delegate as? AppDelegate
+     delegate?.scheduleLocalNotification(title: "Pollution Details", body: "Last Date for Pollution", date: validUptoTxt.completeDate ?? "")
     dismiss(animated: true) {
       self.completion?(true)
     }

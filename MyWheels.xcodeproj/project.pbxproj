@@ -11,6 +11,7 @@
 		04393C9025E8F300001ED80A /* CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C8F25E8F300001ED80A /* CustomTextFields.swift */; };
 		04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */; };
 		04393CA225E917AA001ED80A /* RCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393CA125E917AA001ED80A /* RCViewController.swift */; };
+		044656882600B5910041679F /* LoadingOverLay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044656872600B5910041679F /* LoadingOverLay.swift */; };
 		0457C2FE25F637B4006CAC2A /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */; };
 		04599FB925EA159400C71E2B /* InsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FB825EA159400C71E2B /* InsuranceViewController.swift */; };
 		04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBB25EA15B200C71E2B /* PollutionViewController.swift */; };
@@ -42,6 +43,7 @@
 		04393C8F25E8F300001ED80A /* CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFields.swift; sourceTree = "<group>"; };
 		04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		04393CA125E917AA001ED80A /* RCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewController.swift; sourceTree = "<group>"; };
+		044656872600B5910041679F /* LoadingOverLay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverLay.swift; sourceTree = "<group>"; };
 		0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		04599FB825EA159400C71E2B /* InsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceViewController.swift; sourceTree = "<group>"; };
 		04599FBB25EA15B200C71E2B /* PollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				04393C8F25E8F300001ED80A /* CustomTextFields.swift */,
 				04599FC425EA3B4A00C71E2B /* CustomImageView.swift */,
+				044656872600B5910041679F /* LoadingOverLay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */,
 				04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */,
 				04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */,
+				044656882600B5910041679F /* LoadingOverLay.swift in Sources */,
 				65BB2E5125E7B8A4003FBC89 /* MenuTableViewCell.swift in Sources */,
 				65863D3625E3B1860075DC6C /* AppDelegate.swift in Sources */,
 				65863D3825E3B1860075DC6C /* SceneDelegate.swift in Sources */,

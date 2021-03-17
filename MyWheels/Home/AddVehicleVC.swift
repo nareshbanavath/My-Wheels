@@ -19,6 +19,17 @@ class AddVehicleVC: UIViewController {
   let dropDown = DropDown()
   let dropDownDatasource : [String] = ["Fuel Type" , "Petrol" , "Diesel" , "Gas" , "Electric"]
   
+  @IBOutlet weak var saveBtn: UIButton!
+  {
+    didSet
+    {
+      saveBtn.layer.cornerRadius = saveBtn.bounds.height / 2
+      saveBtn.layer.shadowColor = UIColor.gray.cgColor
+      saveBtn.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+      saveBtn.layer.shadowRadius = 5.0
+      saveBtn.layer.shadowOpacity = 0.7
+    }
+  }
   override func viewDidLoad() {
         super.viewDidLoad()
     self.addTapGestureToView()

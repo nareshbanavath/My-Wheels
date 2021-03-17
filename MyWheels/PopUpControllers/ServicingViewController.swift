@@ -109,6 +109,10 @@ class ServicingViewController: UIViewController {
     servicingDetails.services = servicesTxtView.text
    // servicingDetails.
     CoreDataManager.shared.saveContext()
+    
+    
+     let delegate = UIApplication.shared.delegate as? AppDelegate
+    delegate?.scheduleLocalNotification(title: "Servicing Details", body: "Last Date for Servicing", date: nextServicingDateTxt.completeDate ?? "")
     dismiss(animated: true) {
       self.completion?(true)
     }

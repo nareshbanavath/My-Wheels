@@ -32,10 +32,10 @@ class CoreDataManager
     return container
   }()
   // MARK: - Core Data Saving support
-  
+  lazy private var saveManagedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
   func saveContext () {
     
-    let context = self.persistentContainer.viewContext
+    let context = persistentContainer.viewContext
     if context.hasChanges {
       do {
         try context.save()

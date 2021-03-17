@@ -15,7 +15,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       IQKeyboardManager.shared.enable = true
-
+        setupSidemenu()
       UNUserNotificationCenter.current().requestAuthorization(options: [.alert ,.badge, .sound]) { (granted, error) in
         if granted
         {
@@ -23,15 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else {
 
-          print("We can not notify you about your validity of vehicle if notification not allowed, So please turn on notification ")
-          let settinglUrl = UIApplication.openSettingsURLString
-          guard let url = URL(string: settinglUrl) else {return}
-          DispatchQueue.main.async {
-            if UIApplication.shared.canOpenURL(url)
-            {
-              UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-          }
+//          let msg = "We can not notify you about your validity info of vehicle if notification not allowed, So please turn on notification"
+//    
+//          print("We can not notify you about your validity info of vehicle if notification not allowed, So please turn on notification")
+//          let settinglUrl = UIApplication.openSettingsURLString
+//          guard let url = URL(string: settinglUrl) else {return}
+//          DispatchQueue.main.async {
+//            if UIApplication.shared.canOpenURL(url)
+//            {
+//              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//            }
+//          }
 
         }
       }
@@ -42,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        setupSidemenu()
+       
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
@@ -57,9 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func setupSidemenu()
     {
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width * 0.7
-//        SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
-//        SideMenuController.preferences.basic.position = .under
-//        SideMenuController.preferences.basic.direction = .left
+        SideMenuController.preferences.basic.enablePanGesture = true
+        SideMenuController.preferences.basic.position = .above
+        SideMenuController.preferences.basic.direction = .left
        // SideMenuController.preferences.basic.defaultCacheKey = "home"
       //  SideMenuController.preferences.basic.enablePanGesture = true
        // SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu

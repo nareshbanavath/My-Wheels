@@ -24,6 +24,7 @@
 		04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC983F25EF871B00DBB9FA /* RCDetailsCell.swift */; };
 		04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984225EF872700DBB9FA /* PollutionCell.swift */; };
 		04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */; };
+		6564FF8E2601D98700BE99DB /* DrivingLicenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */; };
 		65863D3625E3B1860075DC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3525E3B1860075DC6C /* AppDelegate.swift */; };
 		65863D3825E3B1860075DC6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3725E3B1860075DC6C /* SceneDelegate.swift */; };
 		65863D3D25E3B1870075DC6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65863D3B25E3B1870075DC6C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicingDetailsCell.swift; sourceTree = "<group>"; };
 		320A65FD49422F81EABA5ED6 /* Pods-MyWheels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.debug.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.debug.xcconfig"; sourceTree = "<group>"; };
 		6528F0E3C49F46541B8349AE /* Pods-MyWheels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.release.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.release.xcconfig"; sourceTree = "<group>"; };
+		6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingLicenceVC.swift; sourceTree = "<group>"; };
 		65863D3225E3B1850075DC6C /* MyWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65863D3525E3B1860075DC6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65863D3725E3B1860075DC6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				65B858AC25E8B6AA008E8DDC /* HomeTableViewCell.swift */,
 				04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */,
 				04BC983725EF869600DBB9FA /* VehicleDetailsVC.swift */,
+				6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */,
 				65863D5B25E4E2550075DC6C /* HomeVC.swift in Sources */,
 				04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */,
+				6564FF8E2601D98700BE99DB /* DrivingLicenceVC.swift in Sources */,
 				04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */,
 				04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */,
 				044656882600B5910041679F /* LoadingOverLay.swift in Sources */,

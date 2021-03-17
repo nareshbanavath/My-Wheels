@@ -9,7 +9,7 @@ import UIKit
 
 class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var menuItem = ["Driving Licence","Export","Import","App Info"]
+    var menuItem = ["Driving Licence","App Info"]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -23,8 +23,19 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
-        //cell.menuitemLb.text = menuItem[indexPath.row]
+        cell.menuitemLb.text = menuItem[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0
+        {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DrivingLicenceVC") as! DrivingLicenceVC
+            self.sideMenuController?.setContentViewController(to: vc)
+        
+        }
+        sideMenuController?.hideMenu()
+        
     }
 }

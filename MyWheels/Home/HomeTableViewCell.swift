@@ -12,7 +12,8 @@ class HomeTableViewCell: UITableViewCell {
   
   //MARK:- Properties
   
-  @IBOutlet weak var batteryBtn: UIButton!
+    @IBOutlet weak var editIcon: UIButton!
+    @IBOutlet weak var batteryBtn: UIButton!
   @IBOutlet weak var vehicleImgView: ImagePickeredView!
 
   @IBOutlet weak var servicingPlusIcon: UIImageView!
@@ -52,7 +53,9 @@ class HomeTableViewCell: UITableViewCell {
     servicingView.addGestureRecognizer(tapGesture4)
     batteryBtn.addTarget(self, action: #selector(batterBtnTapped(_:)), for: .touchUpInside)
   }
-  //MARK:- ViewTapActions
+    
+
+    //MARK:- ViewTapActions
   @objc func batterBtnTapped(_ sender : UIButton)
   {
     guard let vehicleDatails = self.vehicleDetails else {fatalError("vehicle Data not available")}

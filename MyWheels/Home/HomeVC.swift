@@ -113,40 +113,69 @@ class HomeVC: UIViewController {
         
 
     }
-    @objc func didTapSelectallButton(){
-        
-    }
-    @objc func didTapShareButton(){
-        
-    }
+
     @objc func didTapMenuButton(){
         print("yiushgisifhjid")
        sideMenuController?.revealMenu()
+    }
+    @objc func editBtnClicked(_ sender : UIButton)
+    {
+        let row = sender.tag
+        let vehicleDetailss = tableViewDataSource?[row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddVehicleVC") as! AddVehicleVC
+        vc.modalPresentationStyle = .automatic
+        vc.view.backgroundColor = UIColor.clear
+        vc.definesPresentationContext = false
+        vc.modalTransitionStyle = .coverVertical
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        vc.vehicleDetail = vehicleDetailss
+        vc.completion = { [unowned self](success) in
+          self.getVehicleData()
+        }
+        present(vc, animated: true, completion: nil)
+        
     }
   
 }
 
 //MARK:- TableViewDelegate & DataSource
 extension HomeVC : UITableViewDelegate , UITableViewDataSource {
-  
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //self.list.count
-      return tableViewDataSource?.count ?? 0
+        return tableViewDataSource?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
-      cell.vehicleDetails = tableViewDataSource?[indexPath.row]
-      cell.vehicleImgView.tag = indexPath.row
-      cell.vehicleImgView.parentViewController = self
-      cell.vehicleImgView.imagePickeredDelegate = self
+        print(indexPath.row)
+     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell" , for: indexPath) as! HomeTableViewCell
+        cell.vehicleDetails = tableViewDataSource?[indexPath.row]
+        cell.vehicleImgView.tag = indexPath.row
+        cell.vehicleImgView.parentViewController = self
+        cell.vehicleImgView.imagePickeredDelegate = self
+        cell.editIcon.tag = indexPath.row
+        cell.editIcon.addTarget(self, action: #selector(editBtnClicked(_:)), for: .touchUpInside)
         return cell
     }
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
-    vc.vehicle = tableViewDataSource?[indexPath.row]
-    self.navigationController?.pushViewController(vc, animated: true)
-  }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
+        vc.vehicle = tableViewDataSource?[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastIndexPath = tableView.indexPathsForVisibleRows?.last{
+            if lastIndexPath.row <= indexPath.row{
+                cell.center.y = cell.center.y + cell.frame.height / 2
+                cell.alpha = 0
+                UIView.animate(withDuration: 0.3, delay: 0.05*Double(indexPath.row), options: [.curveEaseInOut], animations: {
+                    cell.center.y = cell.center.y - cell.frame.height / 2
+                    cell.alpha = 1
+                }, completion: nil)
+            }
+        }
+    }
+    
 }
 extension HomeVC : ImagePickeredViewDelegate
 {

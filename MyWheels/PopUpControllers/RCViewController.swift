@@ -85,7 +85,7 @@ class RCViewController: UIViewController {
   func validation() -> Bool {
     guard rcFront_Fill_ImgView.isImagePicked == true else {self.showAlert(message: "Please Capture RC Front Image");return false}
     guard rcBack_Fill_ImgView.isImagePicked == true else {self.showAlert(message: "Please Capture RC Back Image");return false}
-    guard rcValidUpto.text?.count != 0 else {self.showAlert(message: "Please Capture RC Back Image");return false}
+    guard rcValidUpto.text?.count != 0 else {self.showAlert(message: "Please Enter valid upto");return false}
     return true
   }
 

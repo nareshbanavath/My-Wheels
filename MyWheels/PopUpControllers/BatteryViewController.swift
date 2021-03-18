@@ -92,6 +92,8 @@ class BatteryViewController: UIViewController {
     DispatchQueue.global(qos: .userInteractive).async {
       CoreDataManager.shared.saveContext()
     }
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    appDelegate.scheduleLocalNotification(title: "Battery Details", body: "Battery Warranty End date", date: warrantyEndDate.completeDate ?? "")
  
   }
   func validation() -> Bool

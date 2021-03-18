@@ -10,6 +10,7 @@ import UIKit
 class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var menuItem = ["Driving Licence","App Info"]
+    var menuIcons = ["drivingLicenceIcon" , "infoIcon"]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,6 +25,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell") as! MenuTableViewCell
         cell.menuitemLb.text = menuItem[indexPath.row]
+        cell.imageIcon.image = UIImage(named: menuIcons[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
@@ -32,8 +34,14 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "DrivingLicenceVC") as! DrivingLicenceVC
-            self.sideMenuController?.setContentViewController(to: vc)
+            let navVc = UINavigationController(rootViewController: vc)
+            self.sideMenuController?.setContentViewController(to: navVc)
         
+        }
+        else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AboutAppViewController") as! AboutAppViewController
+            let navVc = UINavigationController(rootViewController: vc)
+            self.sideMenuController?.setContentViewController(to: navVc)
         }
         sideMenuController?.hideMenu()
         

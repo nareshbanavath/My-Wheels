@@ -18,7 +18,8 @@ class AddVehicleVC: UIViewController {
   var completion : ((Bool)->())?
   let dropDown = DropDown()
   let dropDownDatasource : [String] = ["Fuel Type" , "Petrol" , "Diesel" , "Gas" , "Electric"]
-  
+  var vehicleDetail : VehicleDetails?
+
   @IBOutlet weak var saveBtn: UIButton!
   {
     didSet
@@ -41,6 +42,18 @@ class AddVehicleVC: UIViewController {
     vehicleNoTxt.clearButtonMode = .whileEditing
     fuelTypeTxt.text = dropDownDatasource[0]
         // Do any additional setup after loading the view.
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let wheelData = vehicleDetail
+        {
+            vehicleNoTxt.text = wheelData.vehicleNo
+            makeTxt.text = wheelData.make
+            modelTxt.text = wheelData.model
+            yearTxt.text = wheelData.year
+            fuelTypeTxt.text = wheelData.fuel
+        }
     }
   
   @IBAction func closeBtnClicked(_ sender: UIButton) {
@@ -73,7 +86,15 @@ class AddVehicleVC: UIViewController {
       return
     }
     let context = CoreDataManager.shared.persistentContainer.viewContext
-    let vehicleData = VehicleDetails(context: context)
+    var vehicleData : VehicleDetails!
+    if vehicleDetail != nil
+    {
+        vehicleData = self.vehicleDetail!
+    }
+    else {
+        vehicleData = VehicleDetails(context: context)
+    }
+
     vehicleData.make = makeTxt.text
     vehicleData.model = modelTxt.text
     vehicleData.vehicleNo = vehicleNoTxt.text

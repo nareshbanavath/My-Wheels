@@ -34,6 +34,7 @@
 		65863D4E25E3B78B0075DC6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D4D25E3B78B0075DC6C /* Constants.swift */; };
 		65863D5B25E4E2550075DC6C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D5A25E4E2550075DC6C /* HomeVC.swift */; };
 		65863D5E25E4E4F20075DC6C /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D5D25E4E4F20075DC6C /* MenuVC.swift */; };
+		6598D0772603346100658F5A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6598D0762603346100658F5A /* AboutAppViewController.swift */; };
 		65B858AD25E8B6AA008E8DDC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B858AC25E8B6AA008E8DDC /* HomeTableViewCell.swift */; };
 		65BB2E5125E7B8A4003FBC89 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB2E5025E7B8A4003FBC89 /* MenuTableViewCell.swift */; };
 		7DFC2E49033E3A850BD7BAE2 /* Pods_MyWheels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD50A542AECA478DA2628AA3 /* Pods_MyWheels.framework */; };
@@ -71,6 +72,7 @@
 		65863D4D25E3B78B0075DC6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65863D5A25E4E2550075DC6C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		65863D5D25E4E4F20075DC6C /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		6598D0762603346100658F5A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		65B858AC25E8B6AA008E8DDC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		65BB2E5025E7B8A4003FBC89 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		FD50A542AECA478DA2628AA3 /* Pods_MyWheels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyWheels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */,
 				04BC983725EF869600DBB9FA /* VehicleDetailsVC.swift */,
 				6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */,
+				6598D0762603346100658F5A /* AboutAppViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				65863D5B25E4E2550075DC6C /* HomeVC.swift in Sources */,
 				04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */,
 				6564FF8E2601D98700BE99DB /* DrivingLicenceVC.swift in Sources */,
+				6598D0772603346100658F5A /* AboutAppViewController.swift in Sources */,
 				04599FBF25EA160700C71E2B /* ServicingViewController.swift in Sources */,
 				04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */,
 				044656882600B5910041679F /* LoadingOverLay.swift in Sources */,

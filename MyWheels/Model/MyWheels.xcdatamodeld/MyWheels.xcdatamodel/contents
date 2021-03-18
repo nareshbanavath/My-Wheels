@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BatteryTable" representedClassName="BatteryTable" syncable="YES" codeGenerationType="class">
         <attribute name="batteryImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="make" optional="YES" attributeType="String"/>
@@ -7,6 +7,12 @@
         <attribute name="warantyImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="warrantyDate" optional="YES" attributeType="String"/>
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="batteryDetails" inverseEntity="VehicleDetails"/>
+    </entity>
+    <entity name="DrivingLicenceTable" representedClassName="DrivingLicenceTable" syncable="YES" codeGenerationType="class">
+        <attribute name="licenceBackImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="licenceFrontImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="licenceNo" optional="YES" attributeType="String"/>
+        <attribute name="validUpto" optional="YES" attributeType="String"/>
     </entity>
     <entity name="InsuranceTable" representedClassName="InsuranceTable" syncable="YES" codeGenerationType="class">
         <attribute name="agency" optional="YES" attributeType="String"/>
@@ -60,5 +66,6 @@
         <element name="RCDetailsTable" positionX="-63" positionY="27" width="128" height="89"/>
         <element name="ServicingTable" positionX="-18" positionY="54" width="128" height="179"/>
         <element name="VehicleDetails" positionX="-63" positionY="-18" width="128" height="194"/>
+        <element name="DrivingLicenceTable" positionX="-36" positionY="99" width="128" height="89"/>
     </elements>
 </model>

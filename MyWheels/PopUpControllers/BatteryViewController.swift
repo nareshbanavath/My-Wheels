@@ -142,23 +142,7 @@ class BatteryViewController: UIViewController {
 
   }
   
-  func writeCoreDataObjectToCSV(objects: [NSManagedObject], named: String) -> String? {
-      /* We assume that all objects are of the same type */
-      guard objects.count > 0 else {
-          return nil
-      }
-      let firstObject = objects[0]
-     /////////////// let arr = Array(firstObject.entity.attributesByName.keys)
-      let attribs = Array(firstObject.entity.attributesByName.keys)
-    let csvHeaderString = (attribs.reduce("",{($0 as String) + "," + $1 }) as NSString).substring(from: 1) + "\n"
-
-      let csvArray = objects.map({object in
-        (attribs.map({((object.value(forKey: $0) ?? "NIL") as AnyObject).description}).reduce("",{$0 + "," + $1}) as NSString).substring(from: 1) + "\n"
-      })
-    let csvString = csvArray.reduce("", +)
-
-      return csvHeaderString+csvString
-  }
+ 
   
   @IBAction func closeBtnClicked(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)

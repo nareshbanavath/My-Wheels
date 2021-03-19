@@ -87,7 +87,37 @@ class CoreDataManager
     guard let resultArray = self.getManagedObjects(fetchRequest: fetchRequest) else {return nil}
     return resultArray
   }
-  
+    func writeCoreDataObjectToCSV(objects: [NSManagedObject], named: String) -> URL? {
+        /* We assume that all objects are of the same type */
+        guard objects.count > 0 else {
+            return nil
+        }
+        let firstObject = objects[0]
+       /////////////// let arr = Array(firstObject.entity.attributesByName.keys)
+        let attribs = Array(firstObject.entity.attributesByName.keys)
+      let csvHeaderString = (attribs.reduce("",{($0 as String) + "," + $1 }) as NSString).substring(from: 1) + "\n"
+
+        let csvArray = objects.map({object in
+          (attribs.map({((object.value(forKey: $0) ?? "NIL") as AnyObject).description}).reduce("",{$0 + "," + $1}) as NSString).substring(from: 1) + "\n"
+        })
+      let csvString = csvArray.reduce("", +)
+        let fileManager = FileManager.default
+        guard let documentDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
+        let path = documentDir.appendingPathComponent("VehicleData").appendingPathExtension("csv")
+        let finalString = csvHeaderString+csvString
+        if !fileManager.fileExists(atPath: path.path)
+        {
+            fileManager.createFile(atPath: path.path, contents: nil, attributes: nil)
+        }
+        do {
+            try finalString.write(to: path, atomically: true, encoding: .utf8)
+        }catch let err
+        {
+            print(err.localizedDescription)
+        }
+        return path
+    }
+
 
   
 }

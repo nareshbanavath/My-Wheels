@@ -143,6 +143,11 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //self.list.count
+        if tableViewDataSource?.count == 0 {
+             self.tableView.setEmptyMessage("No Records Found")
+         } else {
+             self.tableView.restore()
+         }
         return tableViewDataSource?.count ?? 0
     }
     

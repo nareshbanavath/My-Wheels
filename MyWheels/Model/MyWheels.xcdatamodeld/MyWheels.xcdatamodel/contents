@@ -61,11 +61,11 @@
     </entity>
     <elements>
         <element name="BatteryTable" positionX="0" positionY="63" width="128" height="119"/>
+        <element name="DrivingLicenceTable" positionX="-36" positionY="99" width="128" height="89"/>
         <element name="InsuranceTable" positionX="-54" positionY="36" width="128" height="119"/>
         <element name="PollutionTable" positionX="-36" positionY="45" width="128" height="89"/>
         <element name="RCDetailsTable" positionX="-63" positionY="27" width="128" height="89"/>
         <element name="ServicingTable" positionX="-18" positionY="54" width="128" height="179"/>
         <element name="VehicleDetails" positionX="-63" positionY="-18" width="128" height="194"/>
-        <element name="DrivingLicenceTable" positionX="-36" positionY="99" width="128" height="89"/>
     </elements>
 </model>

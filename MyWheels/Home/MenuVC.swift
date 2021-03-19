@@ -31,6 +31,13 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 2 //export
+        {
+            guard let vehicleArr = CoreDataManager.shared.loadVehiclesData() else {return}
+           
+            let csvURL = CoreDataManager.shared.writeCoreDataObjectToCSV(objects: vehicleArr, named: "vehicle")
+            print(csvURL)
+        }
         if indexPath.row == 0
         {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "DrivingLicenceVC") as! DrivingLicenceVC

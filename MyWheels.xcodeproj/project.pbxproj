@@ -24,6 +24,7 @@
 		04BC984025EF871B00DBB9FA /* RCDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC983F25EF871B00DBB9FA /* RCDetailsCell.swift */; };
 		04BC984325EF872700DBB9FA /* PollutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984225EF872700DBB9FA /* PollutionCell.swift */; };
 		04BC984625EF874500DBB9FA /* ServicingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */; };
+		65631D902604A64100424CDC /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65631D8F2604A64100424CDC /* UITableView + Extension.swift */; };
 		6564FF8E2601D98700BE99DB /* DrivingLicenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */; };
 		65863D3625E3B1860075DC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3525E3B1860075DC6C /* AppDelegate.swift */; };
 		65863D3825E3B1860075DC6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65863D3725E3B1860075DC6C /* SceneDelegate.swift */; };
@@ -60,6 +61,7 @@
 		04BC984525EF874500DBB9FA /* ServicingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicingDetailsCell.swift; sourceTree = "<group>"; };
 		320A65FD49422F81EABA5ED6 /* Pods-MyWheels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.debug.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.debug.xcconfig"; sourceTree = "<group>"; };
 		6528F0E3C49F46541B8349AE /* Pods-MyWheels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWheels.release.xcconfig"; path = "Target Support Files/Pods-MyWheels/Pods-MyWheels.release.xcconfig"; sourceTree = "<group>"; };
+		65631D8F2604A64100424CDC /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		6564FF8D2601D98700BE99DB /* DrivingLicenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingLicenceVC.swift; sourceTree = "<group>"; };
 		65863D3225E3B1850075DC6C /* MyWheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWheels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65863D3525E3B1860075DC6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				04599FC925EA42F500C71E2B /* UIViewController + Extensions.swift */,
 				0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */,
+				65631D8F2604A64100424CDC /* UITableView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04599FC225EA164100C71E2B /* BatteryViewController.swift in Sources */,
+				65631D902604A64100424CDC /* UITableView + Extension.swift in Sources */,
 				04BC983825EF869600DBB9FA /* VehicleDetailsVC.swift in Sources */,
 				04BC983D25EF870000DBB9FA /* InsuranceCell.swift in Sources */,
 				04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */,
@@ -500,6 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RH6LF4GV53;
 				INFOPLIST_FILE = MyWheels/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -521,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RH6LF4GV53;
 				INFOPLIST_FILE = MyWheels/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         getVehicleData()
-      debugPrint(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+     // debugPrint(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
       
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +70,10 @@ class HomeVC: UIViewController {
     self.vehicleList = CoreDataManager.shared.loadVehiclesData()
     self.tableViewDataSource = self.vehicleList
     tableView.reloadData()
+  //  let lastIndex = tableView.numberOfRows(inSection: 0) - 1
+    //let indexPath = IndexPath(row: lastIndex, section: 0)
+    
+   // tableView.scrollToRow(at: indexPath, at: .none, animated: true)
   }
   //MARK:- Helper Methods
   func setupButton() {
@@ -115,7 +119,7 @@ class HomeVC: UIViewController {
     }
 
     @objc func didTapMenuButton(){
-        print("yiushgisifhjid")
+        //print("yiushgisifhjid")
        sideMenuController?.revealMenu()
     }
     @objc func editBtnClicked(_ sender : UIButton)
@@ -152,7 +156,7 @@ extension HomeVC : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
+      //  print(indexPath.row)
      
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell" , for: indexPath) as! HomeTableViewCell
         cell.vehicleDetails = tableViewDataSource?[indexPath.row]

@@ -165,6 +165,9 @@ class HomeTableViewCell: UITableViewCell {
     {
       self.vehicleImgView.image = UIImage(data: data)
     }
+    else {
+      self.vehicleImgView.image = UIImage(named: "cameraIcon")
+    }
     
     self.vehicleNoLb.text = vehicleDetails?.vehicleNo
     self.makeLb.text = vehicleDetails?.make
@@ -228,6 +231,13 @@ class HomeTableViewCell: UITableViewCell {
       
       
     }
+    else {
+      rcPlusIcon.isHidden = false
+      rcView.backgroundColor = .white
+      rcAddLb.text = "Add"
+      rcAddLb.textColor = .systemRed
+      
+    }
   }
   func setupInsuranceDetails()
   {
@@ -271,6 +281,12 @@ class HomeTableViewCell: UITableViewCell {
       servicingAddLb.text = "\(colorAndDays.1) days"
       servicingView.backgroundColor = colorAndDays.0 // color
       
+    }
+    else {
+      servicingView.backgroundColor = .white
+      servicingAddLb.text = "Add"
+      servicingAddLb.textColor = .systemRed
+      servicingPlusIcon.isHidden = false
     }
   }
 

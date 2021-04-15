@@ -14,6 +14,7 @@ import UserNotifications
 
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+   
       IQKeyboardManager.shared.enable = true
         setupSidemenu()
       UNUserNotificationCenter.current().requestAuthorization(options: [.alert ,.badge, .sound]) { (granted, error) in

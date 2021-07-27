@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BatteryTable" representedClassName="BatteryTable" syncable="YES" codeGenerationType="class">
         <attribute name="batteryImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="make" optional="YES" attributeType="String"/>
@@ -35,12 +35,12 @@
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleDetails" inverseName="rcDetails" inverseEntity="VehicleDetails"/>
     </entity>
     <entity name="ServicingTable" representedClassName="ServicingTable" syncable="YES" codeGenerationType="class">
-        <attribute name="generalServiceFlag" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="generalServiceFlag" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="gsAmount" optional="YES" attributeType="String"/>
         <attribute name="nextServicingAtKm" optional="YES" attributeType="String"/>
         <attribute name="nextServicingDate" optional="YES" attributeType="String"/>
         <attribute name="osAmount" optional="YES" attributeType="String"/>
-        <attribute name="othersFlag" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="othersFlag" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="services" optional="YES" attributeType="String"/>
         <attribute name="servicingAtKm" optional="YES" attributeType="String"/>
         <attribute name="servicingDate" optional="YES" attributeType="String"/>

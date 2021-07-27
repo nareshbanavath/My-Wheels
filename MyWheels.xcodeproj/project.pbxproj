@@ -12,6 +12,7 @@
 		04393C9525E8F3B9001ED80A /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */; };
 		04393CA225E917AA001ED80A /* RCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393CA125E917AA001ED80A /* RCViewController.swift */; };
 		044656882600B5910041679F /* LoadingOverLay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044656872600B5910041679F /* LoadingOverLay.swift */; };
+		04520B0B26280AB500F3381A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04520B0A26280AB500F3381A /* CloudKit.framework */; };
 		0457C2FE25F637B4006CAC2A /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */; };
 		04599FB925EA159400C71E2B /* InsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FB825EA159400C71E2B /* InsuranceViewController.swift */; };
 		04599FBC25EA15B200C71E2B /* PollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599FBB25EA15B200C71E2B /* PollutionViewController.swift */; };
@@ -47,6 +48,8 @@
 		04393C9425E8F3B9001ED80A /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		04393CA125E917AA001ED80A /* RCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewController.swift; sourceTree = "<group>"; };
 		044656872600B5910041679F /* LoadingOverLay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverLay.swift; sourceTree = "<group>"; };
+		04520B0826280AB200F3381A /* MyWheels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWheels.entitlements; sourceTree = "<group>"; };
+		04520B0A26280AB500F3381A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0457C2FD25F637B4006CAC2A /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		04599FB825EA159400C71E2B /* InsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceViewController.swift; sourceTree = "<group>"; };
 		04599FBB25EA15B200C71E2B /* PollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFC2E49033E3A850BD7BAE2 /* Pods_MyWheels.framework in Frameworks */,
+				04520B0B26280AB500F3381A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +169,7 @@
 		65863D3425E3B1850075DC6C /* MyWheels */ = {
 			isa = PBXGroup;
 			children = (
+				04520B0826280AB200F3381A /* MyWheels.entitlements */,
 				04599FC725EA42C600C71E2B /* Extensions */,
 				04393CA025E9177C001ED80A /* PopUpControllers */,
 				04393C8E25E8F241001ED80A /* Utils */,
@@ -209,6 +214,7 @@
 		9B22D7904E527704F391669A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04520B0A26280AB500F3381A /* CloudKit.framework */,
 				FD50A542AECA478DA2628AA3 /* Pods_MyWheels.framework */,
 			);
 			name = Frameworks;
@@ -503,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyWheels/MyWheels.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RH6LF4GV53;
@@ -525,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyWheels/MyWheels.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RH6LF4GV53;

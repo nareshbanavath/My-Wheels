@@ -22,14 +22,14 @@ class CoreDataManager
   static let shared = CoreDataManager()
   // MARK: - Core Data stack
   
-  lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: "MyWheels")
+  lazy var persistentContainer: NSPersistentCloudKitContainer = {
+    let container = NSPersistentCloudKitContainer(name: "MyWheels")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     })
-    //container.viewContext.automaticallyMergesChangesFromParent = true
+    container.viewContext.automaticallyMergesChangesFromParent = true
 
     return container
   }()
@@ -38,6 +38,7 @@ class CoreDataManager
   func saveContext () {
     
     let context = persistentContainer.viewContext
+    context.automaticallyMergesChangesFromParent = true
     if context.hasChanges {
       do {
         try context.save()
@@ -54,6 +55,7 @@ class CoreDataManager
   func loadVehiclesData() -> [VehicleDetails]?
   {
       let context = persistentContainer.viewContext
+      context.automaticallyMergesChangesFromParent = true
       let request : NSFetchRequest = VehicleDetails.fetchRequest()
       do {
           let vehicleData = try context.fetch(request)
